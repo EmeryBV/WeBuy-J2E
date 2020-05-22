@@ -1,14 +1,21 @@
 package univ.tours.WeBuy;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WeBuyApplication {
+public class WeBuyApplication implements CommandLineRunner {
 
+	@Autowired
 	public static void main(String[] args) {
 		SpringApplication.run(WeBuyApplication.class, args);
-		System.out.println("Hello World");
+	}
+	
+	@Override
+	public void run(String... args) throws Exception {
+		
 	}
 
 }
