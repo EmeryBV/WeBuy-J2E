@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -16,17 +17,18 @@ public class Produit implements Serializable {
 	private int idProduit;
 	private String nom;
 	private String logo;
-	private float prix;
-	@OneToMany
+	private double prix;
+	@OneToMany(mappedBy = "produit", fetch = FetchType.LAZY)
 	private Collection<Promotion> promotions;
 	
 	public Produit() {
 		
 	}
 
-	public Produit(String nom, String logo) {
+	public Produit(String nom, String logo, double prix) {
 		this.nom = nom;
 		this.logo = logo;
+		this.prix = prix;
 	}
 
 	public int getIdProduit() {
@@ -53,11 +55,11 @@ public class Produit implements Serializable {
 		this.logo = logo;
 	}
 
-	public float getPrix() {
+	public double getPrix() {
 		return prix;
 	}
 	
-	public void setPrix(float prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 	

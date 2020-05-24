@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import univ.tours.WeBuy.entities.Invitation;
 
 @RepositoryRestResource
-public interface InvitationJpaRepository extends JpaRepository<Invitation,Long> {
+public interface InvitationJpaRepository extends JpaRepository<Invitation,Integer> {
 
 }

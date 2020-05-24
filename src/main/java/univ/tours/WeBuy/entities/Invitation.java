@@ -2,9 +2,11 @@ package univ.tours.WeBuy.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -16,9 +18,11 @@ public class Invitation implements Serializable {
 	//private int idEmetteur;
 	private int idDestinataire;
 	//private int idGroupe;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idUtilisateur")
 	private Utilisateur emetteur;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idGroupe")
 	private Groupe groupe;
 	
 	public Invitation() {

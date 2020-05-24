@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -17,16 +18,16 @@ public class Magasin implements Serializable {
 	private String nom;
 	private String adresse;
 	private String logo;
-	private float latitude;
-	private float longitude;
-	@OneToMany
+	private double latitude;
+	private double longitude;
+	@OneToMany(mappedBy = "magasin", fetch = FetchType.LAZY)
 	private Collection<Promotion> promotions;
 
 	public Magasin() {
 		
 	}
 
-	public Magasin(String nom, String adresse, String logo, float latitude, float longitude) {
+	public Magasin(String nom, String adresse, String logo, double latitude, double longitude) {
 		this.nom = nom;
 		this.adresse = adresse;
 		this.logo = logo;
@@ -66,19 +67,19 @@ public class Magasin implements Serializable {
 		this.logo = logo;
 	}
 
-	public float getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public float getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 	

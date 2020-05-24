@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import univ.tours.WeBuy.entities.Groupe;
 
 @RepositoryRestResource
-public interface GroupeJpaRepository extends JpaRepository<Groupe,Long>{
+public interface GroupeJpaRepository extends JpaRepository<Groupe,Integer>{
 
 }

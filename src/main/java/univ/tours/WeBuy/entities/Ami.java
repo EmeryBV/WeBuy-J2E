@@ -2,11 +2,12 @@ package univ.tours.WeBuy.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Ami implements Serializable {
@@ -14,16 +15,18 @@ public class Ami implements Serializable {
 	@Id
 	@GeneratedValue
 	private int idAmi;
-	@ManyToOne
-	private Utilisateur utilisateur1;
+	
+	@ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idUtilisateur")
+	private Utilisateur utilisateur;
 	private int utilisateur2;
 	
 	public Ami() {
 		
 	}
 
-	public Ami(Utilisateur utilisateur1, int utilisateur2) {
-		this.utilisateur1 = utilisateur1;
+	public Ami(Utilisateur utilisateur, int utilisateur2) {
+		this.utilisateur = utilisateur;
 		this.utilisateur2 = utilisateur2;
 	}
 
@@ -35,12 +38,12 @@ public class Ami implements Serializable {
 		this.idAmi = idAmi;
 	}
 
-	public Utilisateur getUtilisateur1() {
-		return utilisateur1;
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
 
-	public void setUtilisateur1(Utilisateur utilisateur1) {
-		this.utilisateur1 = utilisateur1;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
 	public int getUtilisateur2() {

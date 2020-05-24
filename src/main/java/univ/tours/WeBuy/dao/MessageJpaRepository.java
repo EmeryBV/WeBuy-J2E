@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import univ.tours.WeBuy.entities.Message;
 
 @RepositoryRestResource
-public interface MessageJpaRepository extends JpaRepository<Message,Long>{
+public interface MessageJpaRepository extends JpaRepository<Message,Integer>{
 
 }

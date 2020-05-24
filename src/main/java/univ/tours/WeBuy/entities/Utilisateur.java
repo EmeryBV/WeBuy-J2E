@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -20,13 +21,13 @@ public class Utilisateur implements Serializable {
 	private String motDePasse;
 	private String role;
 	private int token;
-	@OneToMany
+	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY)
 	private Collection<Message> messages;
-	@OneToMany
+	@OneToMany(mappedBy = "emetteur", fetch = FetchType.LAZY)
 	private Collection<Invitation> invitations;
-	@OneToMany
+	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY)
 	private Collection<Ami> amis;
-	@OneToMany
+	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY)
 	private Collection<Utilisateur_Groupe> utilisateur_groupes;
 	
 	public Utilisateur() {

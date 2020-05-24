@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import univ.tours.WeBuy.entities.Utilisateur_Groupe;
 
 @RepositoryRestResource
-public interface Utilisateur_GroupeJpaRepository extends JpaRepository<Utilisateur_Groupe,Long> {
+public interface Utilisateur_GroupeJpaRepository extends JpaRepository<Utilisateur_Groupe,Integer> {
 
 }

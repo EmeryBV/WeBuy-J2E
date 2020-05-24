@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import univ.tours.WeBuy.entities.Promotion;
 
 @RepositoryRestResource
-public interface PromotionJpaRepository extends JpaRepository<Promotion,Long> {
+public interface PromotionJpaRepository extends JpaRepository<Promotion,Integer> {
 
 }

@@ -2,9 +2,11 @@ package univ.tours.WeBuy.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -17,9 +19,11 @@ public class Message implements Serializable {
 	private String date;
 	//private int idUtilisateur;
 	//private int idGroupe;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateur;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idGroupe")
 	private Groupe groupe;
 	
 	public Message() {

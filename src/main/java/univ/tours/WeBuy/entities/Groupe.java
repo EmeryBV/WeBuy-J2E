@@ -3,9 +3,12 @@ package univ.tours.WeBuy.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -14,15 +17,16 @@ public class Groupe implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	private int idGroupe ;
+	private int idGroupe;
 	private boolean visible;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "idPromotion")
 	private Promotion promotion;
-	@OneToMany
+	@OneToMany(mappedBy = "groupe", fetch = FetchType.LAZY)
 	public Collection<Invitation> invitations;
-	@OneToMany
+	@OneToMany(mappedBy = "groupe", fetch = FetchType.LAZY)
 	public Collection<Message> messages;
-	@OneToMany
+	@OneToMany(mappedBy = "groupe", fetch = FetchType.LAZY)
 	public Collection<Utilisateur_Groupe> utilisateur_groupes;
 	
 	public Groupe() {

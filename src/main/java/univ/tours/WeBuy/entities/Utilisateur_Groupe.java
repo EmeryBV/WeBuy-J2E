@@ -1,8 +1,10 @@
 package univ.tours.WeBuy.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -11,10 +13,12 @@ import javax.persistence.OneToMany;
 public class Utilisateur_Groupe {
 
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateur;
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idGroupe")
 	private Groupe groupe;
 	private int quantite;
 	
